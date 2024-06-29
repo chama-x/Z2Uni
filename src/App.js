@@ -118,8 +118,13 @@ const App = () => {
     return { valid: true };
   };
 
-  const { name, threshold, stream } = form;
+  const { name, threshold, zScore, stream } = form;
   const { selectedStreamCourses, commonCourses, extraCourses } = courses;
+
+  // Calculate the multiplied value
+  const parsedZScore = parseFloat(zScore);
+  const parsedThreshold = parseFloat(threshold);
+  const multipliedValue = parsedThreshold/100 * parsedZScore + parsedZScore;
 
   return (
     <div className="App" ref={appRef}>
@@ -142,9 +147,9 @@ const App = () => {
         {loading && <div className="loading">Loading...</div>}
 
         {!loading && name && <h2>Available Courses for {name}:</h2>}
-
+        
         <CourseList
-          label={`Extra Courses (Within ${threshold}% of your Z-Score):`}
+          label={`Extra Courses (Up to Z-Score of ${multipliedValue} from ${parsedThreshold}% threshold):`}
           courses={extraCourses}
         />
 
