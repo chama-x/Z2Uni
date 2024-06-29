@@ -169,7 +169,7 @@ const App = () => {
             <input type="number" name="zScore" step="0.0001" value={zScore} onChange={handleInputChange} required />
           </div>
           <div className="form-group">
-            <label>Threshold (%): <span className="optional">To select courses more than your Z-score</span></label>
+            <label>Threshold (%): <span className="optional">To select courses more than your Z-score *Add 20 if not sure</span></label>
             <input type="number" name="threshold" step="5" value={threshold} onChange={handleInputChange} />
           </div>
           <div className="form-group">
@@ -203,7 +203,7 @@ const App = () => {
 
         {extraCourses.length > 0 && (
           <div className="extra-courses-section">
-            <h3>Extra Courses (Within {threshold}% of your Z-Score):</h3>
+            <h3>Extra Courses (Within 1{threshold}% of your Z-Score):</h3>
             <ul className="course-list extra-courses">
               {extraCourses.map((course, index) => (
                 <li
