@@ -158,7 +158,7 @@ const App = () => {
     <div className="App" ref={appRef}>
       <div className="container frosted-glass">
         <h1 ref={titleRef}>Z2Uni</h1>
-        <h3>Your Score, Your Future. Let's find your dream together.</h3>
+        <h3>Your ZScore, Your Future. Let's find your dream together.</h3>
         <form onSubmit={handleSubmit} className="form">
           <div className="form-group">
             <label>Name:</label>
