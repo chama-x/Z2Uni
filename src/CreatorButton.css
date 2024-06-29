@@ -1,0 +1,53 @@
+/* Scoped styles for CreatorButton component */
+
+.creator-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.creator-fancy-button {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg);
+  transition: transform 0.5s;
+}
+
+.creator-fancy-button.flipped {
+  transform: rotateX(-180deg);
+}
+
+.creator-fancy-front, .creator-fancy-back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.creator-fancy-front {
+  background: rgb(148, 148, 148);
+}
+
+.creator-fancy-back {
+  background: rgb(121, 121, 121);
+  transform: rotateX(180deg);
+  width: 100%;
+}
+
+.bict{
+  font-size: 10px;
+  color: #aaa;
+}

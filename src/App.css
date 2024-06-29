@@ -5,11 +5,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #a0a0a0;
-  background-image: linear-gradient(180deg, #fafafa 50%, #a0a0a0 100%);
+  background-color: #13547a;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   color: #333;
   overflow-x: hidden;
-  min-height: 110vh;
+  min-height: 100vh;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -21,24 +21,20 @@ body {
   margin: 20px;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(69, 160, 73, 0.5);
+  box-shadow: 0 0 10px rgba(41, 139, 133, 0.5);
   transition: box-shadow 0.3s ease-in-out;
-  max-width: 900px;
+  max-width: 80vw;
   width: 90%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  background: rgba(255, 255, 255);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px); /* For Safari */
 }
 
 .App:hover {
-  box-shadow: 0 0 40px rgba(69, 160, 73, 1);
+  box-shadow: 0 0 40px rgb(53, 212, 223);
 }
 
 /* Loading spinner (fullscreen) */
-@-webkit-keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -70,10 +66,26 @@ body {
 
 /* Header styles */
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   color: #45a049;
   margin-bottom: 1rem;
   animation: fadeIn 1s ease-out both;
+  background: linear-gradient(45deg, #2196F3, #00a66f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 0 rgb(0, 166, 111,0.05), 2px 2px 0 rgba(0, 0, 0, 0.1), 3px 3px 0 rgba(0, 0, 0, 0.05); /* Multiple shadows for 3D */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h3 {
@@ -83,14 +95,12 @@ h3 {
   animation: fadeIn 1.2s ease-out both;
 }
 
-h2,
-h3 {
+h2, h3 {
   position: relative;
   text-align: center;
 }
 
-h2::after,
-h3::after {
+h2::after, h3::after {
   content: '';
   width: 50px;
   height: 2px;
@@ -104,11 +114,12 @@ h3::after {
 
 .optional {
   font-size: 0.8rem;
-  color: #777777;
+  color: #777;
 }
 
 /* Form styles */
 .form {
+  border: #292b2c;
   margin-bottom: 2rem;
   animation: fadeIn 1.5s ease-out both;
   display: flex;
@@ -118,6 +129,7 @@ h3::after {
 }
 
 .form-group {
+  border: #292b2c;
   margin-bottom: 1rem;
   width: 100%;
   max-width: 400px;
@@ -133,7 +145,7 @@ input,
 select {
   padding: 0.5rem;
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #4e4e4e;
   border-radius: 5px;
   transition: border 0.2s ease-in-out;
   box-sizing: border-box;
@@ -145,8 +157,8 @@ select:focus {
 }
 
 .submit-btn {
-  background: linear-gradient(45deg, #45a049, #66bb6a);
-  width: 60%;
+  background: linear-gradient(45deg, #2196F3, #00a67d);
+  width: 50%;
   border: none;
   color: white;
   padding: 1rem;
@@ -161,7 +173,6 @@ select:focus {
 
 .submit-btn:hover {
   transform: scale(1.05);
-  background: #45a049;
 }
 
 /* Course list styles */
@@ -187,7 +198,6 @@ select:focus {
   transform: scale(1.02);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
 .course-score {
@@ -201,8 +211,8 @@ select:focus {
 
 .dot {
   display: inline-block;
-  height: 10px;
-  width: 10px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   margin: 0 0.5rem;
   background: #ccc;
@@ -220,7 +230,7 @@ select:focus {
   background: linear-gradient(45deg, #2196F3, #4CAF50);
   color: white;
   padding: 0.3rem 0.7rem;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 0.75rem;
 }
 
@@ -252,7 +262,7 @@ select:focus {
 .creator-btn:hover,
 .info-btn:hover {
   transform: scale(1.05);
-  background: #66bb6a;
+  background: #097a7a;
 }
 
 .creator-info,
@@ -267,37 +277,18 @@ select:focus {
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes lineGrow {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 50px;
-  }
+  from { width: 0; }
+  to { width: 50px; }
 }
 
 /* Responsive styles */
@@ -322,12 +313,13 @@ select:focus {
   }
 
   .submit-btn {
+    width: 100%;
     padding: 0.75rem;
     font-size: 0.9rem;
   }
 
   .course-list {
-    max-width: 90%;
+    max-width: 100%;
   }
 }
 
@@ -352,6 +344,7 @@ select:focus {
   }
 
   .submit-btn {
+    width: 100%;
     padding: 0.5rem;
     font-size: 0.8rem;
   }
@@ -362,7 +355,134 @@ select:focus {
 
   .creator-btn,
   .info-btn {
+    width: 100%;
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+}
+
+/* Notice Sections */
+.notice-buttons {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+}
+
+.notice-btn {
+  width: 30%;
+  background: #a3a3a3;
+  color: #fff;
+  padding: 10px;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.notice-section {
+  background: #fff; /* White background for better readability */
+  border: 1px solid #e0e0e0; /* Light grey border for subtle distinction */
+  padding: 20px; /* Increased padding for more spacing */
+  margin-top: 20px;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  text-align: left; /* Ensures the text is left-aligned */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a floating effect */
+}
+
+.notice-section.english {
+  border-left: 5px solid #4CAF50; /* Green left border to indicate English notice */
+}
+
+.notice-section.sinhala {
+  border-left: 5px solid #FF5722; /* Orange left border to indicate Sinhala notice */
+}
+
+.notice-section p {
+  margin: 10px 0; /* Reduced margin for tighter spacing */
+  line-height: 1.6; /* Improved line height for better readability */
+  color: #333; /* Darker text for better contrast */
+}
+
+.notice-section ul {
+  padding-left: 20px; /* Adequate padding for list items */
+  margin: 10px 0; /* Ensures proper spacing between paragraphs and lists */
+}
+
+.notice-section ul li {
+  margin-bottom: 8px; /* Reduced margin for neater list presentation */
+}
+
+.extra-courses-section,
+.stream-courses-section,
+.common-courses-section {
+  margin-top: 20px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.green-dot {
+  background-color: #4CAF50;
+}
+
+.blue-dot {
+  background-color: #2196F3;
+}
+
+.gradient-tag {
+  border-color: transparent;
+  background: linear-gradient(45deg, #f3ec78, #af4261);
+}
+
+.creator-btn {
+  margin-top: 20px;
+  background: #292b2c;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1em;
+}
+
+.creator-info {
+  background: #e3e3e3;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Adjustments for better responsiveness on smaller screens */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .submit-btn,
+  .notice-btn {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .creator-info {
+    font-size: 0.9em;
   }
 }
