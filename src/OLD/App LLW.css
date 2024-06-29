@@ -1,0 +1,255 @@
+/* App.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.App {
+  max-width: 70vw;
+  margin: 0 auto;
+  padding: 80px;
+  padding-top: 5px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #45a049;
+  }
+  to {
+    box-shadow: 0 0 30px #45a049;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  color:#2a2a2a;
+  font-size: 8em;
+  margin-bottom: 1px;
+}
+
+.h2cl{
+  background: linear-gradient(45deg, #007bff, #28a745);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.h2Un{
+  background: linear-gradient(45deg, #007bff, #28a745);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+}
+
+h3 {
+  color: #45a049;
+  font-size: 1.5em;
+  margin-bottom: 80px;
+}
+
+
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  margin-right: 0.5em;
+  border-radius: 0.2em;
+}
+
+.blue-tag {
+  background-color: #007bff;
+  color: white;
+}
+
+.green-tag {
+  background-color: #28a745;
+  color: white;
+}
+
+.gradient-tag {
+  background: linear-gradient(45deg, #007bff, #28a745);
+  color: white;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.green-dot {
+  background-color: #28a745;
+}
+
+.blue-dot {
+  background-color: #007bff;
+}
+
+.course-item {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-score {
+  margin-left: auto;
+  padding-left: 20px;
+}
+
+.tags {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.extra-courses .course-item {
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.creator-btn{
+  background-color: #555555;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+
+}
+
+.creator-btn:hover{
+  background-color: #ddd;
+  color: #333;
+}
+
+
+
+
+.submit-btn,
+.info-btn {
+  background-color: #45a049;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover,
+.info-btn:hover {
+  background-color: #367a39;
+}
+
+.creator-info,
+.info-hint {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.course-item {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blue-outline {
+  border-left: 5px solid #007BFF;
+}
+
+.green-outline {
+  border-left: 5px solid #28A745;
+}
+
+.gradient-outline {
+  border-left: 5px solid;
+  background: linear-gradient(to right, #007BFF, #28A745);
+}
+
+@media (max-width: 768px) {
+  .form-group {
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select {
+    font-size: 14px;
+  }
+
+  .submit-btn,
+  .creator-btn,
+  .info-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

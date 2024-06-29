@@ -10,31 +10,7 @@ import { gsap } from 'gsap';
 import './App.css';
 
 const streams = ['Arts', 'Bio', 'Maths', 'Commerce', 'Tech'];
-const districts = ["කොළඹ",
-"ගම්පහ",
-"කළුතර",
-"මාතලේ",
-"මහනුවර",
-"නුවරඑළිය",
-"ගාල්ල",
-"මාතර",
-"හම්බනතොට",
-"යාපනය",
-"කිලිනොච්චිය",
-"මන්නාරම්",
-"මුලතිව්",
-"වව්නියාව",
-"ත්‍රිකුණාමලය",
-"මඩකලපුව",
-"අම්පාර",
-"පුත්තලම",
-"කුරුණෑගල",
-"අනුරාධපුරය",
-"පොළොන්නරුව",
-"බදුල්ල",
-"මොණරාගල",
-"කෑගල්ල",
-"රත්නපුර"].map(dist => ({ value: dist, label: dist }));
+const districts = ['කොළඹ', 'ගම්පහ', 'කළුතර', 'මහනුවර', 'මාතර'].map(dist => ({ value: dist, label: dist }));
 
 const App = () => {
   const [form, setForm] = useState({
@@ -52,13 +28,12 @@ const App = () => {
   });
 
   const [showCreator, setShowCreator] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [loading, setLoading] = useState(false);
   const titleRef = useRef(null);
-  const appRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(titleRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1 });
-    gsap.fromTo(appRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5 });
   }, []);
 
   const handleInputChange = (e) => {
@@ -80,7 +55,7 @@ const App = () => {
       return { valid: false, message: 'Please enter a valid Z-Score.' };
     }
 
-    if (parseFloat(threshold) < 0) {
+    if ( parseFloat(threshold) < 0) {
       return { valid: false, message: 'Please enter a valid percentage threshold.' };
     }
 
@@ -144,7 +119,7 @@ const App = () => {
     }
 
     setLoading(true);
-    const randomDuration = Math.floor(Math.random() * 1001) + 500; // Random duration between 2000ms and 5000ms
+    const randomDuration = Math.floor(Math.random() * 3001) + 2000; // Random duration between 2000ms and 5000ms
     setTimeout(() => {
       fetchCourses();
       setLoading(false);
@@ -155,8 +130,8 @@ const App = () => {
   const { selectedStreamCourses, commonCourses, extraCourses } = courses;
 
   return (
-    <div className="App" ref={appRef}>
-      <div className="container frosted-glass">
+    <div className="App">
+      <div className="container">
         <h1 ref={titleRef}>Z2Uni</h1>
         <h3>Your Score, Your Future. Let's find your dream together.</h3>
         <form onSubmit={handleSubmit} className="form">
@@ -169,7 +144,7 @@ const App = () => {
             <input type="number" name="zScore" step="0.0001" value={zScore} onChange={handleInputChange} required />
           </div>
           <div className="form-group">
-            <label>Threshold (%): <span className="optional">To select courses more than your Z-score</span></label>
+            <label>Threshold (%):</label>
             <input type="number" name="threshold" step="5" value={threshold} onChange={handleInputChange} />
           </div>
           <div className="form-group">
@@ -181,8 +156,8 @@ const App = () => {
               placeholder="Select District"
               isClearable
               isSearchable
-              menuPortalTarget={document.body}
-              styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+              menuPortalTarget={document.body} // to prevent dropdown from breaking the layout
+              styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }} // Ensure it appears above other content
             />
           </div>
           <div className="form-group">
@@ -202,7 +177,7 @@ const App = () => {
         {!loading && name && <h2>Available Courses for {name}:</h2>}
 
         {extraCourses.length > 0 && (
-          <div className="extra-courses-section">
+          <div>
             <h3>Extra Courses (Within {threshold}% of your Z-Score):</h3>
             <ul className="course-list extra-courses">
               {extraCourses.map((course, index) => (
@@ -230,7 +205,7 @@ const App = () => {
           </div>
         )}
 
-        <div className="stream-courses-section">
+        <div>
           <h3>{`${stream} Related Courses:`}</h3>
           <ul className="course-list">
             {selectedStreamCourses.map((course, index) => (
@@ -257,7 +232,7 @@ const App = () => {
           </ul>
         </div>
 
-        <div className="common-courses-section">
+        <div>
           <h3>Common Courses:</h3>
           <ul className="course-list">
             {commonCourses.map((course, index) => (
@@ -284,14 +259,21 @@ const App = () => {
           </ul>
         </div>
 
-        {!loading && selectedStreamCourses.length === 0 && commonCourses.length === 0 && (
-          <p>No courses available for the selected criteria.</p>
-        )}
+        {!loading && selectedStreamCourses.length === 0 && commonCourses.length === 0 && <p>No courses available for the selected criteria.</p>}
       </div>
       <button onClick={() => setShowCreator(!showCreator)} className="creator-btn">Created by</button>
       {showCreator && (
         <div className="creator-info">
           Chamath Thiwanka, BICT (Honours) University of Sri Jayewardenepura
+        </div>
+      )}
+      <br />
+      <button onClick={() => setShowInfo(!showInfo)} className="info-btn">Info</button>
+      {showInfo && (
+        <div className="info-hint">
+          <p><span className="tag blue-tag">Aptitude test required</span></p>
+          <p><span className="tag green-tag">Island-wide talent base</span></p>
+          <p><span className="tag gradient-tag">Both criteria met</span></p>
         </div>
       )}
     </div>
