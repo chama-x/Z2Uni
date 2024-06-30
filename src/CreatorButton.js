@@ -15,8 +15,7 @@ const CreatorButton = () => {
           Show Creator
         </div>
         <div className="creator-fancy-back">
-          Chamath Thiwanka 
-          <span className='bict'> BICT(Hons) USJP</span>
+          Chamath Thiwanka <span className='bict'> BICT(Hons) USJP</span>
         </div>
       </div>
     </div>

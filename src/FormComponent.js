@@ -60,8 +60,8 @@ const FormComponent = ({
             control: (provided) => ({
               ...provided,
               borderColor: '#ccc',
-              '&:hover': { borderColor: '#007BFF' },
-              '&--is-focused': { borderColor: '#007BFF' }
+              '&:hover': { borderColor: '#45a049' },
+              '&--is-focused': { borderColor: '#45a049' }
             }),
           }}
         />
