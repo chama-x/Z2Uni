@@ -142,7 +142,7 @@ const App = () => {
           loading={loading}
         />
 
-        <Notice showNotice={showNotice} setShowNotice={setShowNotice} />
+        <Notice showNotice={showNotice} setShowNotice={setShowNotice} /> 
 
         {loading && <div className="loading">Loading...</div>}
 
