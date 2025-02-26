@@ -1,6 +1,3 @@
-Here’s the corrected showcase for **Z2Uni**, based on the provided screenshot and beta notice:
-
----
 
 ## **Z2Uni | University Course Selection Assistant**  
 
